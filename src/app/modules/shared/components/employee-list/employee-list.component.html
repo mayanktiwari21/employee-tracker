@@ -23,7 +23,10 @@
     ></app-employee-form>
   </section>
   } @else {
-  <section class="employees__list">
+  <section
+    class="employees__list"
+    [ngClass]="{ 'align-center': !(currentEmployeesList().length || previousEmployeesList().length) }"
+  >
     @if (currentEmployeesList().length || previousEmployeesList().length) { @if (currentEmployeesList().length) {
     <app-list
       class="employees__list-wrapper"
