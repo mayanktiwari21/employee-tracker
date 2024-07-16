@@ -1,0 +1,175 @@
+@import 'variables';
+
+// Mat buttons
+.mat-mdc-fab.mat-primary {
+  --mdc-fab-container-color: #{$primary-color};
+  --mdc-fab-container-shape: 8px;
+  height: 50px;
+  width: 50px;
+}
+
+.mat-mdc-unelevated-button:not(:disabled) {
+  --mdc-filled-button-container-color: #{$primary-color};
+}
+
+.mat-mdc-outlined-button {
+  --mat-outlined-button-ripple-color: #{rgba($primary-color, 0.2)};
+  --mat-outlined-button-state-layer-color: #{rgba($primary-color, 0.2)};
+  border: none;
+  background-color: #{$secondary-background};
+
+  &:not(:disabled) {
+    --mdc-outlined-button-label-text-color: #{$primary-color};
+  }
+}
+
+.mat-mdc-icon-button svg,
+.mat-mdc-icon-button img {
+  fill: $primary-color;
+}
+
+.mat-mdc-outlined-button {
+  --mdc-outlined-button-label-text-size: 0.75rem !important;
+
+  @include bp-tablet {
+    --mdc-outlined-button-label-text-size: 0.875rem !important;
+  }
+}
+
+.mat-mdc-unelevated-button {
+  --mdc-filled-button-label-text-size: 0.75rem !important;
+
+  @include bp-tablet {
+    --mdc-filled-button-label-text-size: 0.875rem !important;
+  }
+}
+
+// Mat fields
+.mdc-text-field--outlined .mat-mdc-form-field-infix,
+.mdc-text-field--no-label .mat-mdc-form-field-infix {
+  --mat-form-field-container-vertical-padding: 0.5rem;
+  --mat-form-field-container-height: none;
+}
+
+.mat-mdc-form-field-icon-prefix > .mat-icon,
+.mat-mdc-form-field-icon-suffix > .mat-icon {
+  padding: 0.5rem !important;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  --mdc-icon-button-state-layer-size: 2.5rem;
+  padding: 0.5rem;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  --mdc-outlined-text-field-outline-color: #{$border-color};
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  --mdc-outlined-text-field-hover-outline-color: #{$border-color};
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+  --mdc-outlined-text-field-focus-outline-color: #{$primary-color};
+}
+
+.mat-mdc-form-field {
+  font-size: 0.75rem;
+
+  @include bp-tablet {
+    font-size: 1rem;
+  }
+}
+
+// Bottom sheet
+.custom-bottom-sheet {
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+
+  .mat-bottom-sheet-container {
+    padding: 0;
+  }
+}
+
+// Calendar
+.mat-datepicker-content-touch {
+  --mat-datepicker-calendar-container-touch-shape: 1rem;
+}
+
+.mat-calendar-body {
+  tr:first-child {
+    display: none;
+  }
+}
+
+.mat-calendar-table-header {
+  tr:last-child {
+    display: none;
+  }
+}
+
+.mat-calendar-header {
+  padding: 1rem 1rem 0 1rem !important;
+}
+
+.mat-calendar-content {
+  padding: 0 1rem !important;
+}
+
+.mat-datepicker-actions {
+  padding: 0 1rem 1rem !important;
+}
+
+.mat-calendar-body-selected {
+  --mat-datepicker-calendar-date-selected-state-background-color: #{$primary-color};
+}
+
+.mat-calendar-body-selected.mat-calendar-body-today {
+  box-shadow: none !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  --mat-datepicker-calendar-date-today-outline-color: #{$primary-color};
+  --mat-datepicker-calendar-date-text-color: #{$primary-color};
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  --mat-datepicker-calendar-date-hover-state-background-color: #{rgba($primary-color, 0.2)};
+}
+
+.cdk-keyboard-focused
+  .mat-calendar-body-active
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),
+.cdk-program-focused
+  .mat-calendar-body-active
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  --mat-datepicker-calendar-date-focus-state-background-color: #{rgba($primary-color, 0.2)};
+}
+
+// Snackbar
+
+.mat-mdc-snack-bar-container {
+  margin: 0 !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  --mdc-snackbar-container-shape: 0;
+  width: 100vw;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+  --mat-snack-bar-button-color: #{$primary-color};
+}

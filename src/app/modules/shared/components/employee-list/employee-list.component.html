@@ -1,0 +1,64 @@
+<div class="employees">
+  <nav class="employees__nav large-font">
+    {{ addingEmployee ? 'Add Employee Details' : editingEmployee ? 'Edit Employee Details' : 'Employee List' }}
+    @if (editingEmployee) {
+    <button
+      mat-icon-button
+      class="employees__delete-btn"
+      color="primary"
+      aria-label="Add employee"
+      (click)="deleteEmployee()"
+    >
+      <mat-icon class="employees__delete-icon material-icons">delete_outline</mat-icon>
+    </button>
+    }
+  </nav>
+  @if (addingEmployee || editingEmployee) {
+  <section class="employees__form">
+    <app-employee-form
+      class="employees__form-wrapper"
+      [employee]="employeeBeingEdited"
+      (cancel)="onClose()"
+      (save)="onSave($event)"
+    ></app-employee-form>
+  </section>
+  } @else {
+  <section class="employees__list">
+    @if (currentEmployeesList().length || previousEmployeesList().length) { @if (currentEmployeesList().length) {
+    <app-list
+      class="employees__list-wrapper"
+      heading="Current employees"
+      [list]="currentEmployeesList()"
+      (listClick)="editEmployee($event)"
+      (delete)="deleteEmployee($event)"
+    ></app-list>
+    } @if (previousEmployeesList().length) {
+    <app-list
+      class="employees__list-wrapper"
+      heading="Previous employees"
+      [list]="previousEmployeesList()"
+      (listClick)="editEmployee($event)"
+      (delete)="deleteEmployee($event)"
+    ></app-list>
+    } } @else {
+    <app-null-state [image]="NULL_STATE_IMAGE" [message]="NO_EMPLOYEES"></app-null-state>
+    }
+  </section>
+  <mat-divider></mat-divider>
+  <footer class="employees__actions">
+    @if (currentEmployeesList().length || previousEmployeesList().length) {
+    <p class="secondary-text no-margin">Swipe left to delete</p>
+    }
+    <button
+      mat-fab
+      class="margin-left-auto"
+      color="primary"
+      aria-label="Add employee"
+      matTooltip="Add new employee"
+      (click)="addEmployee()"
+    >
+      <mat-icon fontIcon="add"></mat-icon>
+    </button>
+  </footer>
+  }
+</div>

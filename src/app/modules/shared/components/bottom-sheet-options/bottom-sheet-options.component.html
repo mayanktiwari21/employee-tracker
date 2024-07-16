@@ -1,0 +1,9 @@
+<mat-list class="no-padding" role="list">
+    @for (option of options; track $index) {
+    <mat-list-item class="no-padding text-center cursor-pointer" role="listitem"
+        (click)="handleSelection(option)">{{option}}</mat-list-item>
+    @if (!$last) {
+    <mat-divider></mat-divider>
+    }
+    }
+</mat-list>

@@ -1,0 +1,47 @@
+@import 'src/styles/_imports.scss';
+
+.list {
+    @include flex-box($direction: column);
+    height: 100%;
+
+    &__header {
+        @include flex-box($alignItems: center);
+        min-height: 3.5rem;
+        padding: 0 1rem;
+        background-color: $primary-background;
+        color: $primary-color;
+    }
+
+    &__wrapper {
+        overflow-y: auto;
+    }
+
+    &__card {
+        @include flex-box();
+        position: relative;
+    }
+
+    &__card-content {
+        @include flex-box($direction: column, $gap: 0.375rem);
+        background-color: $white;
+        padding: 1rem;
+        width: 100%;
+        z-index: 1;
+        transition: all linear 100ms;
+    }
+
+    &__delete {
+        position: absolute;
+        height: 100%;
+        aspect-ratio: 1;
+        right: 0;
+        border: none;
+        background-color: $danger;
+        border-radius: 0;
+        color: $white;
+    }
+}
+
+.swiped {
+    transform: translateX(var(--height));
+}

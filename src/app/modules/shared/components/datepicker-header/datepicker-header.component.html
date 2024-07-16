@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="header__quick-actions">
+        <div class="header__row">
+            <button mat-stroked-button class="header__button" color="primary" (click)="next()">Today</button>
+            <button mat-flat-button class="header__button" color="primary" (click)="next('monday')">Next
+                Monday</button>
+        </div>
+        <div class="header__row">
+            <button mat-stroked-button class="header__button" color="primary" (click)="next('tuesday')">Next
+                Tuesday</button>
+            <button mat-stroked-button class="header__button" color="primary" (click)="next('week')">After 1
+                week</button>
+        </div>
+    </div>
+
+    <div class="header__actions">
+        <button mat-icon-button (click)="previousClicked()">
+            <mat-icon>arrow_left</mat-icon>
+        </button>
+        <span class="header__label large-font">{{ periodLabel }}</span>
+        <button mat-icon-button (click)="nextClicked()">
+            <mat-icon>arrow_right</mat-icon>
+        </button>
+    </div>
+</div>

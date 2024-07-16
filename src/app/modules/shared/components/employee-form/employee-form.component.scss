@@ -1,0 +1,59 @@
+@import 'src/styles/_imports.scss';
+
+.form {
+    @include flex-box($direction: column);
+    flex: 1;
+
+    .mat-icon.mat-icon-no-color {
+        color: $primary-color;
+    }
+
+    &__fields {
+        @include flex-box($direction: column, $gap: 0.5rem);
+        flex: 1;
+        padding: 1.5rem 1rem;
+
+        @include bp-tablet() {
+            align-self: center;   
+            max-width: 50%;
+        }
+    }
+
+    &__row {
+        @include flex-box(space-between, center, $gap: 1rem);
+    }
+
+    &__arrow {
+        padding-bottom: var(--mat-form-field-subscript-text-line-height);
+        color: $primary-color;
+    }
+
+    &__input {
+        width: 100%;
+    }
+
+    &__date {
+        width: 40%;
+    }
+
+    &__footer {
+        @include flex-box(flex-end, center, $gap: 1rem);
+        padding: 0.75rem 1rem;
+        height: 4rem;
+    }
+
+    &__current {
+        @include flex-box($alignItems: flex-end, $gap: 0.5rem);
+        position: absolute;
+        left: 1rem;
+        font-size: 0.75rem;
+
+        @include bp-tablet {
+            font-size: 0.875rem;
+        }
+    }
+
+    &__current-icon {
+        color: $primary-color;
+    }
+}

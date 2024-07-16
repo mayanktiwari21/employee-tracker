@@ -1,0 +1,64 @@
+<div class="form">
+  <form class="form__fields" [formGroup]="employeeForm">
+    <mat-form-field class="form__input" appearance="outline">
+      <mat-icon matIconPrefix class="material-icons">person_outline</mat-icon>
+      <input matInput placeholder="Employee name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field class="form__input" appearance="outline" (click)="openBottomSheet()">
+      <mat-icon matIconPrefix class="material-icons">work_outline</mat-icon>
+      <input matInput placeholder="Select role" formControlName="role" />
+      <mat-icon matIconSuffix class="material-icons">keyboard_arrow_down</mat-icon>
+    </mat-form-field>
+    <div class="form__row">
+      <mat-form-field class="form__date form__date--small" appearance="outline">
+        <input matInput placeholder="Select date" formControlName="startDate" [matDatepicker]="startDate" />
+        <mat-datepicker-toggle matIconPrefix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #startDate [restoreFocus]="false" [calendarHeaderComponent]="DATEPICKER_HEADER">
+          <mat-datepicker-actions class="position-relative">
+            <span class="form__current">
+              <mat-icon class="form__current-icon material-icons">calendar_today</mat-icon>
+              {{
+                employeeForm.controls.startDate.value
+                  ? employeeForm.controls.startDate.value.format(DATE_FORMAT)
+                  : 'No Date'
+              }}
+            </span>
+            <button mat-stroked-button matDatepickerCancel color="primary">Cancel</button>
+            <button mat-flat-button matDatepickerApply color="primary" class="margin-left-1rem">Save</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <mat-icon class="form__arrow material-icons">arrow_right_alt</mat-icon>
+      <mat-form-field class="form__date form__date--small" appearance="outline">
+        <input matInput placeholder="No date" formControlName="endDate" [matDatepicker]="endDate" />
+        <mat-datepicker-toggle matIconPrefix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #endDate [restoreFocus]="false" [calendarHeaderComponent]="DATEPICKER_SECONDARY_HEADER">
+          <mat-datepicker-actions class="position-relative">
+            <span class="form__current">
+              <mat-icon class="form__current-icon material-icons">calendar_today</mat-icon>
+              {{
+                employeeForm.controls.endDate.value
+                  ? employeeForm.controls.endDate.value.format(DATE_FORMAT)
+                  : 'No Date'
+              }}
+            </span>
+            <button mat-stroked-button matDatepickerCancel color="primary">Cancel</button>
+            <button mat-flat-button matDatepickerApply color="primary">Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+  </form>
+  <mat-divider></mat-divider>
+  <footer class="form__footer">
+    <button mat-stroked-button color="primary" (click)="onCancel()">Cancel</button>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="employeeForm.pristine || employeeForm.invalid"
+      (click)="onSave()"
+    >
+      Save
+    </button>
+  </footer>
+</div>

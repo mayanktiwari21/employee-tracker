@@ -1,0 +1,14 @@
+@mixin flex-box($justifyContent: flex-start, $alignItems: stretch, $direction: row, $gap: 0, $flexWrap: nowrap) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $direction;
+  gap: $gap;
+  flex-wrap: $flexWrap;
+}
+
+@mixin bp-tablet {
+  @media screen and (min-width: $tablet-screen) {
+    @content;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="list">
+  @if (heading) {
+  <header class="list__header">
+    <p class="no-margin font-bold">{{ heading }}</p>
+  </header>
+  }
+  <div #listWrapper class="list__wrapper" cdkDropList cdkDropListSortingDisabled [cdkDropListData]="list">
+    @for (employee of list; track employee.id) {
+    <div class="list__card cursor-pointer" (click)="onClick(employee)">
+      <div cdkDrag cdkDragLockAxis="x" class="list__card-content" (cdkDragMoved)="handleSwipe($event)">
+        <p class="subtitle-text no-margin">{{ employee.name }}</p>
+        <p class="small-text no-margin">{{ employee.role }}</p>
+        @if (employee.endDate) {
+        <p class="extra-small-text no-margin">{{ employee.startDate }} - {{ employee.endDate }}</p>
+        } @else {
+        <p class="extra-small-text no-margin">From {{ employee.startDate }}</p>
+        }
+      </div>
+      <button class="list__delete cursor-pointer" matTooltip="Delete employee" (click)="onDelete($event, employee)">
+        <mat-icon class="material-icons">delete_outline</mat-icon>
+      </button>
+    </div>
+    @if (!$last) {
+    <mat-divider></mat-divider>
+    } }
+  </div>
+</div>

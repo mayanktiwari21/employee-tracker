@@ -1,0 +1,5 @@
+@import 'src/styles/_imports.scss';
+
+.null-state {
+    @include flex-box(center, center, column, 0.25rem);
+}

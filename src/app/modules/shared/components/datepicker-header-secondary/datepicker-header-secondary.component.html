@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="header__quick-actions">
+    <div class="header__row">
+      <button mat-flat-button class="header__button" color="primary" (click)="next('no-date')">No Date</button>
+      <button mat-stroked-button class="header__button" color="primary" (click)="next('today')">Today</button>
+    </div>
+  </div>
+
+  <div class="header__actions">
+    <button mat-icon-button (click)="previousClicked()">
+      <mat-icon>arrow_left</mat-icon>
+    </button>
+    <span class="header__label large-font">{{ periodLabel }}</span>
+    <button mat-icon-button (click)="nextClicked()">
+      <mat-icon>arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

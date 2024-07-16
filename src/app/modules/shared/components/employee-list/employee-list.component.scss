@@ -1,0 +1,63 @@
+@import 'src/styles/_imports.scss';
+
+.employees {
+    @include flex-box($direction: column);
+    height: 100vh;
+    overflow: hidden;
+
+    &__nav {
+        @include flex-box(space-between, center);
+        background-color: $primary-color;
+        color: $white;
+        padding: 0 1rem;
+        min-height: 3.75rem;
+    }
+
+    &__delete-icon {
+        color: $white;
+    }
+
+    &__list-wrapper {
+        @include flex-box($direction: column);
+        height: 50%;
+
+        &:only-child {
+            height: 100%;
+        }
+
+        @include bp-tablet() {
+            height: 100%;
+            width: 50%;
+        }
+    }
+
+    &__form-wrapper {
+        @include flex-box($direction: column);
+        flex: 1;
+    }
+
+    &__form {
+        @include flex-box($direction: column);
+        flex: 1;
+    }
+
+    &__list {
+        @include flex-box(center, $direction: column);
+        flex: 1;
+        position: relative;
+        background-color: $primary-background;
+        overflow: hidden;
+
+        @include bp-tablet() {
+            flex-direction: row;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+    }
+
+    &__actions {
+        @include flex-box(space-between, center);
+        background-color: $primary-background;
+        padding: 1rem;
+    }
+}
